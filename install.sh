@@ -8,4 +8,6 @@ git config --global color.ui true
 git config --global user.email "ruseel@gmail.com"
 git config --global user.name "JEONG, MunShik"
 
-bundle config --global jobs `sysctl -n hw.ncpu`
+if [ -e sysctl ]; then
+  bundle config --global jobs `sysctl -n hw.ncpu`
+fi
