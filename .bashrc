@@ -1,17 +1,43 @@
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-export NODE_PATH=/opt/local/lib/node:/opt/local/lib/node_modules/
+# If not running interactively, don't do anything
+[[ "$-" != *i* ]] && return
+
+alias ls='ls -hF --color=tty'                 # classify files in colour
+
+alias ...='cd ../..'
+
+alias gs='git status'
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias gco='git checkout'
+alias gc='git commit'
+alias gca='git commit -a'
+alias gcam='git commit -a -m'
+alias ga='git add -p'
+alias gl='git log'
+alias glp='git log -p'
+alias gsd='git svn dcommit'
+alias gsr='git svn rebase'
+
+alias erc='vi + ~/.bashrc && source ~/.bashrc'
+alias spi='cd ~/p/spike && vi'
+
+alias grun='java org.antlr.v4.runtime.misc.TestRig'
 
 export EDITOR=vi
-PATH=$PATH:$HOME/bin:$HOME/.rvm/bin:/usr/local/texlive/2013/bin/x86_64-darwin # Add RVM to PATH for scripting
+export SOCKS5_USER=munshik
+export SOCKS5_PASSWD=munshik
+export CLASSPATH="`cygpath -w /home/user/workspace/antlr-study/antlr-4.0-complete.jar`;c:/Users/user/.m2/repository/com/microsoft/sqlserver/sqljdbc4/2.0/sqljdbc4-2.0.jar;$CLASSPATH"
 
-INFOPATH=$INFOPATH:/usr/local/texlive/2013/texmf-dist/doc/info
-MANPATH=$MANPATH:/usr/local/texlive/2013/texmf-dist/doc/man
+export JRUBY_OPTS='-J-Dfile.encoding=utf8'
 
-alias gs='git status' 
-alias gc='git commit' 
-alias ga='git add' 
-alias gap='git add -p' 
-alias gd='git diff'
-alias gl='git log'
-alias gdc='git diff --cached'
+export MAVEN_OPTS="-Dfile.encoding=utf-8 -XX:MaxPermSize=512M"
+#export MAVEN_OPTS="-Dfile.encoding=utf-8 -XX:MaxPermSize=512M -agentlib:jdwp=transport=dt_socket,address=127.0.0.1:8888,server=y,suspend=y"
 
+alias clj='java -Dfile.encoding=utf-8 -cp "$CLOJURE_LIB" clojure.main'
+
+alias beta='gsd && d9_build_to_beta'
+alias live='d9_beta_to_live_restart_all.rb'
+
+if [ -f .bash_local ]; then
+  . .bash_local
+fi
