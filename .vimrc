@@ -1,9 +1,22 @@
-set nocp
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'kien/ctrlp.vim'
+Bundle 'mileszs/ack.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
+Bundle 'tpope/vim-surround'
+
+set fileencodings=utf-8,euc-kr
 set ai sts=4 sw=4 et 
 set modelines=3
 set bg=dark
-set modelines=3
-set fileencodings=utf-8,euc-kr
+set incsearch
+set ignorecase
+set smartcase
 syn on
 
 nnoremap ; :
