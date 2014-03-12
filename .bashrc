@@ -1,7 +1,15 @@
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
 
-alias ls='ls -hF --color=tty'                 # classify files in colour
+# avoid duplicates..
+export HISTCONTROL=ignoredups:erasedups  
+# append history entries..
+shopt -s histappend
+
+# After each command, save and reload history
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
+#alias ls='ls -hF --color=tty'                 # classify files in colour
 
 alias ...='cd ../..'
 
