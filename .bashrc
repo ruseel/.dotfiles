@@ -26,7 +26,6 @@ alias grun='java org.antlr.v4.runtime.misc.TestRig'
 export EDITOR=vi
 export SOCKS5_USER=munshik
 export SOCKS5_PASSWD=munshik
-export CLASSPATH="`cygpath -w /home/user/workspace/antlr-study/antlr-4.0-complete.jar`;c:/Users/user/.m2/repository/com/microsoft/sqlserver/sqljdbc4/2.0/sqljdbc4-2.0.jar;$CLASSPATH"
 
 export JRUBY_OPTS='-J-Dfile.encoding=utf8'
 
@@ -34,9 +33,7 @@ export MAVEN_OPTS="-Dfile.encoding=utf-8 -XX:MaxPermSize=512M"
 #export MAVEN_OPTS="-Dfile.encoding=utf-8 -XX:MaxPermSize=512M -agentlib:jdwp=transport=dt_socket,address=127.0.0.1:8888,server=y,suspend=y"
 
 alias clj='java -Dfile.encoding=utf-8 -cp "$CLOJURE_LIB" clojure.main'
-
-alias beta='gsd && d9_build_to_beta'
-alias live='d9_beta_to_live_restart_all.rb'
+alias m='ssh da-master'
 
 if [ -f .bash_local ]; then
   . .bash_local

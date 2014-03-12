@@ -37,11 +37,6 @@ if [ -d "/cygdrive/c/Program\ Files/Java/jdk1.7.0_11/bin/" ] ; then
    PATH="/cygdrive/c/Program\ Files/Java/jdk1.7.0_11/bin/:${PATH}"
 fi
 
-MZSCHEME=`cygpath -u "c:\Program Files (x86)\PLT"`
-if [ -d "${MZSCHEME}" ] ; then
-  PATH=${PATH}:${MZSCHEME}  
-fi
-
 # Set MANPATH so it includes users' private man if it exists
 # if [ -d "${HOME}/man" ]; then
 #   MANPATH="${HOME}/man:${MANPATH}"
@@ -52,7 +47,6 @@ fi
 #   INFOPATH="${HOME}/info:${INFOPATH}"
 # fi
 
-source ~/.git-prompt.sh
-export PS1='\[\e]0;\w\a\]\n\[\e[32m\]\[\e[33m\]\w\[\e[0m\] $(__git_ps1 " (%s)") \n\$ '
-
+#source ~/.git-prompt.sh
+#export PS1='\[\e]0;\w\a\]\n\[\e[32m\]\[\e[33m\]\w\[\e[0m\] $(__git_ps1 " (%s)") \n\$ '
 export LANG=ko_KR.utf-8
