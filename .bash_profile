@@ -46,3 +46,5 @@ fi
 #source ~/.git-prompt.sh
 #export PS1='\[\e]0;\w\a\]\n\[\e[32m\]\[\e[33m\]\w\[\e[0m\] $(__git_ps1 " (%s)") \n\$ '
 export LANG=ko_KR.utf-8
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
