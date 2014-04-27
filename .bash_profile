@@ -30,11 +30,7 @@ fi
 
 # Set PATH so it includes user's private bin if it exists
 if [ -d "${HOME}/bin" ] ; then
-   PATH="${HOME}/bin:${PATH}:/home/user/workspace/cjgatex"
-fi
-
-if [ -d "/cygdrive/c/Program\ Files/Java/jdk1.7.0_11/bin/" ] ; then
-   PATH="/cygdrive/c/Program\ Files/Java/jdk1.7.0_11/bin/:${PATH}"
+   PATH="${PATH}:${HOME}/bin:${HOME}/.rvm/bin"
 fi
 
 # Set MANPATH so it includes users' private man if it exists
