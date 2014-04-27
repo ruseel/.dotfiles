@@ -1,7 +1,6 @@
 #!/bin/bash -ex
 ln -fs ~/.dotfiles/.gemrc ~/.gemrc
 ln -fs ~/.dotfiles/.vimrc ~/.vimrc
-ln -fs ~/.dotfiles/.profile ~/.profile
 ln -fs ~/.dotfiles/.bash_profile ~/.bash_profile
 ln -fs ~/.dotfiles/.bashrc ~/.bashrc
 
