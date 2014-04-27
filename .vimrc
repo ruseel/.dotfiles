@@ -6,16 +6,16 @@ set sw=2 sts=2 et ai
 set nowrap
 set ts=4
 set backspace=indent,eol,start
+set rtp+=~/.vim/bundle/Vundle.vim
 set runtimepath^=~/.vim/bundle/ctrlp.vim
-set runtimepath+=~/.vim/bundle/vundle/
 set bg=dark
 set makeef=errors.err
 set pastetoggle=<f10>
 
+call vundle#begin()
+
 filetype plugin indent on
 syntax on
-
-call vundle#rc()
 
 Bundle "gmarik/vundle"
 Bundle "scrooloose/nerdtree"
