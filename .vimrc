@@ -14,16 +14,13 @@ set pastetoggle=<f10>
 
 call vundle#begin()
 
-filetype plugin indent on
-syntax on
-
+Bundle 'bling/vim-airline'
 Bundle "gmarik/vundle"
 Bundle "scrooloose/nerdtree"
 Bundle "justincampbell/vim-railscasts"
 Bundle "terryma/vim-multiple-cursors"
-Bundle "ack.vim"
+Bundle "mileszs/ack.vim"
 Bundle "beloglazov/vim-online-thesaurus"
-
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "garbas/vim-snipmate"
@@ -33,8 +30,9 @@ Bundle "tpope/vim-surround"
 
 Bundle "vim-scripts/matchit.zip"
 
-" Optional:
-"   Bundle "honza/vim-snippets"
+call vundle#end()
+filetype plugin indent on
+syntax on
 
 " hightlight currentline
 set cursorline
@@ -172,3 +170,5 @@ endfunction
 "
 nnoremap \p :setlocal paste!<cr>:setlocal paste?<cr>
 
+let g:airline_powerline_fonts = 1
+set laststatus=2
