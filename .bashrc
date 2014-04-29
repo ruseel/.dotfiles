@@ -37,11 +37,12 @@ export SOCKS5_PASSWD=munshik
 
 export JRUBY_OPTS='-J-Dfile.encoding=utf8'
 
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_55.jdk/Contents/Home/
 export MAVEN_OPTS="-Dfile.encoding=utf-8 -XX:MaxPermSize=512M"
 #export MAVEN_OPTS="-Dfile.encoding=utf-8 -XX:MaxPermSize=512M -agentlib:jdwp=transport=dt_socket,address=127.0.0.1:8888,server=y,suspend=y"
 
 alias clj='java -Dfile.encoding=utf-8 -cp "$CLOJURE_LIB" clojure.main'
-alias m='ssh da-master'
+alias m='ssh master.da.daumcorp.com'
 
 if [ -f .bash_local ]; then
   . .bash_local
@@ -49,3 +50,24 @@ fi
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+
+export JAVA_HOME=/Library/Java/Home
+
+export HADOOP_PREFIX=/Users/ruseel/Tools/hadoop-2.0.0-cdh4.6.0
+export HADOOP_HOME=/Users/ruseel/Tools/hadoop-2.0.0-cdh4.6.0
+export HADOOP_LOG_DIR=$HADOOP_PREFIX/logs
+export HADOOP_CONF_DIR=$HADOOP_PREFIX/etc/hadoop
+export HADOOP_OPTS="-Djava.security.krb5.realm=OX.AC.UK -Djava.security.krb5.kdc=kdc0.ox.ac.uk:kdc1.ox.ac.uk"
+#export HADOOP_OPTS="-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005 $HADOOP_OPTS"
+
+#export MAPRED_DIR=${MAPRED_DIR:-"share/hadoop/mapreduce1"}
+#export MAPRED_LIB_JARS_DIR=${MAPRED_LIB_JARS_DIR:-"share/hadoop/mapreduce1/lib"}
+
+#export HIVE_HOME=$HOME/Tools/hive-0.10.0-cdh4.2.0
+
+export PIG_HOME=/Users/ruseel/Tools/pig-0.11.0-cdh4.6.0/
+
+emr() {
+  vi $HADOOP_PREFIX/etc/hadoop/mapred-site.xml
+}
