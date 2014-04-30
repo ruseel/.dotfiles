@@ -8,9 +8,11 @@ set ts=4
 set backspace=indent,eol,start
 set rtp+=~/.vim/bundle/Vundle.vim
 set runtimepath^=~/.vim/bundle/ctrlp.vim
-set bg=dark
 set makeef=errors.err
 set pastetoggle=<f10>
+
+set t_Co=256
+set background=dark
 
 call vundle#begin()
 
@@ -37,6 +39,7 @@ syntax on
 " hightlight currentline
 set cursorline
 hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+hi Search ctermbg=NONE cterm=underline
 
 augroup CursorLine
   au!
