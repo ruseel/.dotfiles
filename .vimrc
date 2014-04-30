@@ -16,7 +16,10 @@ set background=dark
 
 call vundle#begin()
 
-Bundle 'bling/vim-airline'
+Bundle "guns/vim-clojure-static"
+Bundle "kien/ctrlp.vim"
+Bundle "bling/vim-airline"
+Bundle "tpope/vim-fireplace"
 Bundle "gmarik/vundle"
 Bundle "scrooloose/nerdtree"
 Bundle "justincampbell/vim-railscasts"
