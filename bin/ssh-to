@@ -1,0 +1,2 @@
+#!/bin/bash
+ssh -t master.da.daumcorp.com "ssh $(basename $0)"

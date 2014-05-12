@@ -3,6 +3,7 @@ ln -fs ~/.dotfiles/.gemrc ~/.gemrc
 ln -fs ~/.dotfiles/.vimrc ~/.vimrc
 ln -fs ~/.dotfiles/.bash_profile ~/.bash_profile
 ln -fs ~/.dotfiles/.bashrc ~/.bashrc
+ln -fs ~/.dotfiles/bin ~/bin
 
 git config --global color.ui true
 git config --global github.user "ruseel"
