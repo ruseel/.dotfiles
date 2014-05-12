@@ -25,6 +25,7 @@ Bundle "bling/vim-airline"
 Bundle "tpope/vim-fireplace"
 Bundle "gmarik/vundle"
 Bundle "scrooloose/nerdtree"
+Bundle "scrooloose/syntastic"
 Bundle "justincampbell/vim-railscasts"
 Bundle "terryma/vim-multiple-cursors"
 Bundle "mileszs/ack.vim"
@@ -142,6 +143,8 @@ function! ExtractPartial() range
 
   execute "normal O<#include \"./" . b:filename . "\" />"
 endfunction
+
+nnoremap <leader>l :!reload-chrome<cr>
 
 vnoremap <f3> :call ExtractPartial()<cr>
 nmap <f4> ^lV%c<#include "./_.ftl" /><esc>
