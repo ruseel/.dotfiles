@@ -4,12 +4,15 @@ set fileencoding=utf8
 set encoding=utf8
 set sw=2 sts=2 et ai
 set nowrap
-set ts=4
+set ts=2
 set backspace=indent,eol,start
 set rtp+=~/.vim/bundle/Vundle.vim
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 set makeef=errors.err
 set pastetoggle=<f10>
+set lazyredraw
+set modeline
+set modelines=5
 
 set t_Co=256
 set background=dark
@@ -117,36 +120,17 @@ augroup filetype_ruby
   autocmd FileType ruby nnoremap <leader>r :!ruby %<cr>
 augroup END
 
-
-set path+=$HOME/p/kproject-front/src/main/webapp
-
-nnoremap rrr ^/require /eliFile.join(File.dirname(__FILE__), <esc>A)<esc>
-
-abbrev email ruseel@gmail.com
-
 " Highlight trailing whitespace
-highlight! link ExtraWhitespace Todo
-autocmd BufWinEnter,InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd BufWinLeave * call clearmatches()
+"highlight! link ExtraWhitespace Todo
+"autocmd BufWinEnter,InsertLeave * match ExtraWhitespace /\s\+$/
+"autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+"autocmd BufWinLeave * call clearmatches()
 
 command! RemoveTrailingWhitespace :%s/\s\+$//g
 command! RubyHashBang :normal ggO#!/bin/env ruby<esc>
 
 nnoremap <leader>m :w<cr>:!rspec --color -Ilib spec/LongRunningJob.rb<cr>
 noremap <leader>t :!tidy -config ~/.vim/tidyrc<cr>
-
-" Custom
-autocmd BufNewFile,BufRead *.ftl set ft=html sw=4 sts=4 et
-
-abbr iabr <#if type=='abrDuet'>
-abbr else <#else>
-abbr end </#if>
-
-nnoremap <leader>x ^d/href="/e<cr>f"d$
-
-nnoremap <leader>ex V/<\/tr><cr>:w %:h/
-nnoremap <leader>ei gvc<#include "./_solo__tr.ftl" /><esc>?_tr<cr>
 
 function! ExtractPartial() range
   call inputsave()
@@ -178,3 +162,10 @@ nnoremap \p :setlocal paste!<cr>:setlocal paste?<cr>
 
 let g:airline_powerline_fonts = 1
 set laststatus=2
+
+"nnoremap <cr> :w!<cr>:!bundle exec rake test test/models/app_test.rb<cr>
+"nnoremap <cr> :w!<cr>:!ruby % <cr>
+
+"nnoremap <cr> :w!<cr>:!bundle exec rake test test/models/user_test.rb<cr>
+"nnoremap <cr> :w!<cr>:!bundle exec rake test test/models/campaign_test.rb<cr>
+"nnoremap Z ZZ

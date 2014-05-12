@@ -17,7 +17,7 @@ alias gs='git status'
 alias gd='git diff'
 alias gdc='git diff --cached'
 alias gco='git checkout'
-alias gc='git commit'
+alias gc='git commit -v'
 alias gca='git commit -a'
 alias gcam='git commit -a -m'
 alias ga='git add -p'
@@ -25,6 +25,8 @@ alias gl='git log'
 alias glp='git log -p'
 alias gsd='git svn dcommit'
 alias gsr='git svn rebase'
+
+alias s='bundle exec rails s'
 
 alias erc='vi + ~/.bashrc && source ~/.bashrc'
 alias spi='cd ~/p/spike && vi'
@@ -61,8 +63,8 @@ export HADOOP_CONF_DIR=$HADOOP_PREFIX/etc/hadoop
 export HADOOP_OPTS="-Djava.security.krb5.realm=OX.AC.UK -Djava.security.krb5.kdc=kdc0.ox.ac.uk:kdc1.ox.ac.uk"
 #export HADOOP_OPTS="-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005 $HADOOP_OPTS"
 
-#export MAPRED_DIR=${MAPRED_DIR:-"share/hadoop/mapreduce1"}
-#export MAPRED_LIB_JARS_DIR=${MAPRED_LIB_JARS_DIR:-"share/hadoop/mapreduce1/lib"}
+export MAPRED_DIR=${MAPRED_DIR:-"share/hadoop/mapreduce1"}
+export MAPRED_LIB_JARS_DIR=${MAPRED_LIB_JARS_DIR:-"share/hadoop/mapreduce1/lib"}
 
 #export HIVE_HOME=$HOME/Tools/hive-0.10.0-cdh4.2.0
 
