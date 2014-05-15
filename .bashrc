@@ -73,3 +73,4 @@ export PIG_HOME=/Users/ruseel/Tools/pig-0.11.0-cdh4.6.0/
 emr() {
   vi $HADOOP_PREFIX/etc/hadoop/mapred-site.xml
 }
+

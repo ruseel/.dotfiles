@@ -118,7 +118,7 @@ augroup END
 
 augroup filetype_ruby
   autocmd!
-  autocmd FileType ruby nnoremap <leader>r :!ruby %<cr>
+  "autocmd FileType ruby nnoremap <leader>r :!ruby %<cr>
 augroup END
 
 " Highlight trailing whitespace
@@ -153,6 +153,55 @@ function! OpenAlternateFile()
   let b:currentfname = expand('%')
   execute ':new ' . substitute(b:currentfname, 'solo', 'duet', '')
 endfunction
+
+function! AckCurruntLine()
+  execute ':Ack --ignore-file=match:.arr --ignore-file=match:.yml --ignore-file=match:.yaml ' . '"'. getline('.') . '"'
+endfunction
+
+
+function! ReplaceKey()
+  execute 'normal' strchars(@z) . 'xi<%= t("jk"kpa") %>'
+endfunction
+
+function! SaveToYAMLFile()
+  call inputsave()
+  let s:yamlkey = input("yaml key: ")
+  call inputrestore()
+
+  call setreg('k', s:yamlkey)
+  execute ":vs globalization/hand_extracted.yml"
+  normal Go
+  normal "zp
+  execute 'normal ^"kPa: '
+  wq
+
+  echomsg @z
+endfunction
+
+function! ExractToEnd()
+  normal "zy$
+  call SaveToYAMLFile()
+endfunction
+
+function! ExractInTag()
+  normal "zyi<
+  call SaveToYAMLFile()
+endfunction
+
+function! ExractUntilTag()
+  normal "zyt<
+  call SaveToYAMLFile()
+endfunction
+
+nnoremap <f4> :w<cr>:cn<cr>
+vnoremap <f3> "zy:call SaveToYAMLFile()<cr>
+nnoremap <f2> :vs globalization/hand_extracted.yml
+nnoremap ,r :call ReplaceKey()<cr>
+nnoremap ,u :call ExractUntilTag()<cr>
+nnoremap ,t :call ExractInTag()<cr>
+nnoremap ,e :call ExractToEnd()<cr>
+nnoremap c* :call AckCurruntLine()<cr>
+nnoremap cn :w<cr>:cn<cr>
 
 " function! SaveToAlternateFile()
 "  let b:currentfname = expand('%')
