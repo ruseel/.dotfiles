@@ -158,6 +158,13 @@ function! AckCurruntLine()
   execute ':Ack --ignore-file=match:.arr --ignore-file=match:.yml --ignore-file=match:.yaml ' . '"'. getline('.') . '"'
 endfunction
 
+function! AckCurruntWord()
+  execute ':Ack --ignore-file=match:.arr --ignore-file=match:.yaml --ignore-file=match:.css ' . '"'. expand('<cword>') . '"'
+endfunction
+
+function! AckCurruntI18Nkey()
+  execute ':Ack --ignore-file=match:.arr --ignore-file=match:.yaml --ignore-file=match:.css ' . '"'. expand('<cword>') . '"'
+endfunction
 
 function! ReplaceKey()
   execute 'normal' strchars(@z) . 'xi<%= t("jk"kpa") %>'
@@ -193,14 +200,31 @@ function! ExractUntilTag()
   call SaveToYAMLFile()
 endfunction
 
+function! Camel()
+  normal "byt:
+  let b:x = system('~/bin/cam.rb '.@b)
+  normal f:
+  normal lD
+  execute 'normal a '.b:x
+endfunction
+
+function! Translate()
+  normal "zy$
+  let b:x = system('~/bin/google_translate.rb "'.@z.'"')
+  echomsg b:x
+  execute 'normal C'.b:x
+endfunction
+
 nnoremap <f4> :w<cr>:cn<cr>
 vnoremap <f3> "zy:call SaveToYAMLFile()<cr>
 nnoremap <f2> :vs globalization/hand_extracted.yml
 nnoremap ,r :call ReplaceKey()<cr>
 nnoremap ,u :call ExractUntilTag()<cr>
-nnoremap ,t :call ExractInTag()<cr>
+"nnoremap ,t :call ExractInTag()<cr>
+nnoremap ,t :call Translate()<cr>
 nnoremap ,e :call ExractToEnd()<cr>
-nnoremap c* :call AckCurruntLine()<cr>
+"nnoremap c* :call AckCurruntLine()<cr>
+nnoremap c* :call AckCurruntWord()<cr>
 nnoremap cn :w<cr>:cn<cr>
 
 " function! SaveToAlternateFile()
@@ -208,7 +232,7 @@ nnoremap cn :w<cr>:cn<cr>
 "  execute ':w ' . substitute(b:currentfname, 'solo', 'group', '')
 " endfunction
 
-" nnoremap <f2> :call SaveToAlternateFile()<cr>
+nnoremap <f2> :call Camel()<cr>j^
 "
 nnoremap \p :setlocal paste!<cr>:setlocal paste?<cr>
 
@@ -218,6 +242,11 @@ set laststatus=2
 "nnoremap <cr> :w!<cr>:!bundle exec rake test test/models/app_test.rb<cr>
 "nnoremap <cr> :w!<cr>:!ruby % <cr>
 
+command! Hive :!$HIVE_HOME/bin/hive --service cli --database valuepotion_real -f %
+
 "nnoremap <cr> :w!<cr>:!bundle exec rake test test/models/user_test.rb<cr>
-"nnoremap <cr> :w!<cr>:!bundle exec rake test test/models/campaign_test.rb<cr>
-"nnoremap Z ZZ
+"nnoremap <cr> :w!<cr>:!bundle exec rake test test/hql/hql_syntax_check_test.rb<cr>
+"nnoremap <cr> :w!<cr>:!bundle exec rake test test/controllers/cohorts_controller_test.rb<cr>
+nnoremap <cr> :w!<cr>:!bundle exec rake test test/models/hql_test.rb<cr>
+"nnoremap <cr> :w!<cr>:!bundle exec rake test test/models/app_test.rb<cr>
+nnoremap Z ZZ

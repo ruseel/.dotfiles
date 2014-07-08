@@ -26,7 +26,10 @@ alias glp='git log -p'
 alias gsd='git svn dcommit'
 alias gsr='git svn rebase'
 
+alias prc='RAILS_ENV="production" rails console'
 alias s='bundle exec rails s'
+alias pgstart='postgres -D /usr/local/var/postgres/ &'
+alias v='cd ~/p/valuepotion'
 
 alias erc='vi + ~/.bashrc && source ~/.bashrc'
 alias spi='cd ~/p/spike && vi'
@@ -69,8 +72,12 @@ export MAPRED_LIB_JARS_DIR=${MAPRED_LIB_JARS_DIR:-"share/hadoop/mapreduce1/lib"}
 #export HIVE_HOME=$HOME/Tools/hive-0.10.0-cdh4.2.0
 
 export PIG_HOME=/Users/ruseel/Tools/pig-0.11.0-cdh4.6.0/
+export HIVE_HOME=/Users/ruseel/Tools/hive-0.10.0-cdh4.6.0/
+
+export CLASSPATH=$HIVE_HOME/conf:$CLASSPATH
 
 emr() {
   vi $HADOOP_PREFIX/etc/hadoop/mapred-site.xml
 }
 
+export LC_COLLATE=C
