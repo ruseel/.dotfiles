@@ -1,6 +1,10 @@
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
 
+if [ -f /etc/bashrc ]; then
+  . /etc/bashrc
+fi
+
 # avoid duplicates..
 export HISTCONTROL=ignoredups:erasedups  
 # append history entries..

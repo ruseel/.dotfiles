@@ -20,6 +20,8 @@ set background=dark
 call vundle#begin()
 
 Bundle "guns/vim-clojure-static"
+Bundle "guns/vim-sexp"
+Bundle "tpope/vim-sexp-mappings-for-regular-people"
 Bundle "kien/ctrlp.vim"
 Bundle "bling/vim-airline"
 Bundle "tpope/vim-fireplace"
@@ -35,6 +37,7 @@ Bundle "tomtom/tlib_vim"
 Bundle "garbas/vim-snipmate"
 Bundle "gregsexton/MatchTag"
 Bundle "tpope/vim-fugitive"
+Bundle "tpope/vim-repeat"
 Bundle "tpope/vim-surround"
 
 Bundle "vim-scripts/matchit.zip"
@@ -56,7 +59,7 @@ augroup END
 
 
 " colorscheme
-autocmd ColorScheme * highlight Visual ctermbg=236
+"autocmd ColorScheme * highlight Visual ctermbg=236
 "colorscheme railscasts
 
 let mapleader=","
