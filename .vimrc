@@ -14,6 +14,8 @@ set lazyredraw
 set modeline
 set modelines=5
 
+let loaded_matchparen = 1
+
 set t_Co=256
 set background=dark
 
