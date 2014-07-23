@@ -49,9 +49,9 @@ filetype plugin indent on
 syntax on
 
 " hightlight currentline
-set cursorline
-hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
-hi Search ctermbg=NONE cterm=underline
+"set cursorline
+"hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+"hi Search ctermbg=NONE cterm=underline
 
 augroup CursorLine
   au!
