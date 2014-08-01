@@ -14,6 +14,10 @@ set lazyredraw
 set modeline
 set modelines=5
 
+let loaded_matchparen = 1
+let g:slime_target = "tmux"
+let g:slime_paste_file = ".slime_paste"
+
 set t_Co=256
 set background=dark
 
@@ -21,6 +25,7 @@ call vundle#begin()
 
 Bundle "guns/vim-clojure-static"
 Bundle "guns/vim-sexp"
+Bundle "jpalardy/vim-slime"
 Bundle "tpope/vim-sexp-mappings-for-regular-people"
 Bundle "kien/ctrlp.vim"
 Bundle "bling/vim-airline"
@@ -47,9 +52,9 @@ filetype plugin indent on
 syntax on
 
 " hightlight currentline
-set cursorline
-hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
-hi Search ctermbg=NONE cterm=underline
+"set cursorline
+"hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+"hi Search ctermbg=NONE cterm=underline
 
 augroup CursorLine
   au!
