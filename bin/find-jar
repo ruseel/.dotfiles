@@ -1,0 +1,18 @@
+#!/bin/env python
+import os, sys, re
+import zipfile
+
+jarlike = re.compile(sys.argv[1])
+classlike = re.compile(sys.argv[2])
+
+def namelist(f):
+  return zipfile.ZipFile(f, 'r').namelist()
+
+for root, dirs, files in os.walk(os.path.expanduser("~/.m2/repository")):
+  for f in files:
+    if f.endswith('.jar') and jarlike.search(f):
+      zipname = os.path.join(root, f)
+      for _class in namelist(zipname):
+        if classlike.search(_class):
+          print(zipname, _class)
+      
