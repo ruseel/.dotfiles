@@ -38,6 +38,11 @@ alias v='cd ~/p/valuepotion'
 alias erc='vi + ~/.bashrc && source ~/.bashrc'
 alias spi='cd ~/p/spike && vi'
 
+if [[ -n $XDG_SESSION_COOKIE ]]; then 
+  alias pbcopy='xsel --clipboard --input'
+  alias pbpaste='xsel --clipboard --output'
+fi
+
 alias grun='java org.antlr.v4.runtime.misc.TestRig'
 
 export EDITOR=vi

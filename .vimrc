@@ -44,6 +44,7 @@ Bundle "gregsexton/MatchTag"
 Bundle "tpope/vim-fugitive"
 Bundle "tpope/vim-repeat"
 Bundle "tpope/vim-surround"
+Bundle "kien/rainbow_parentheses.vim"
 
 Bundle "vim-scripts/matchit.zip"
 
@@ -81,6 +82,8 @@ nnoremap <leader>sn :vsplit ~/.vim/snippets/html.snippets<cr>
 " map jk to <esc>
 nnoremap ; :
 nnoremap : ;
+nnoremap J 10j
+nnoremap K 10k
 inoremap jk <esc>
 inoremap <esc> <nop>
 
@@ -258,3 +261,5 @@ command! Hive :!$HIVE_HOME/bin/hive --service cli --database valuepotion_real -f
 nnoremap <cr> :w!<cr>:!bundle exec rake test test/models/hql_test.rb<cr>
 "nnoremap <cr> :w!<cr>:!bundle exec rake test test/models/app_test.rb<cr>
 nnoremap Z ZZ
+
+abbr "campaing-seq" "campaign-seq"
