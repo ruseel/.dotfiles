@@ -1,0 +1,7 @@
+_parse_option() {
+  local curr_arg;
+  curr_arg=${COMP_WORDS[COMP_CWORD]}
+  COMPREPLY=( $(compgen -W "${curr_arg}.h.daumserver.com" -- $curr_arg) )
+}
+
+complete -F _parse_option ssh

@@ -52,6 +52,10 @@ export MAVEN_OPTS="-Dfile.encoding=utf-8 -XX:MaxPermSize=512M"
 alias clj='java -Dfile.encoding=utf-8 -cp "$CLOJURE_LIB" clojure.main'
 alias m='ssh master.da.daumcorp.com'
 
+if [ -f .bash_complete ]; then
+  . .bash_complete
+fi
+
 if [ -f .bash_local ]; then
   . .bash_local
 fi
